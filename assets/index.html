@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css.css">
+	<title>图片上传组件</title>
+</head>
+<body>
+   <div id="box"></div>
+   <script src="import/jquery.js"></script>
+   <script src="import/jquery.form.js"></script>
+   <script src="upload.js"></script>
+   <script>
+       var upload = new window.Upload();
+       var callback = function(value) {
+       	   
+       };
+   	   upload.init({$parent: $('#box'), ajaxUrl: '/upload'}).after(callback);
+   </script>
+</body>
+</html>

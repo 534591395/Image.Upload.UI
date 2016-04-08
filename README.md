@@ -1,4 +1,4 @@
-# 图片上传web组件 Upload 使用说明
+# 图片上传web组件 Imaage.Upload.UI 使用说明
 
 ## 引用方式
 
@@ -8,7 +8,7 @@
 <div id="box"></div>
 <script src="import/jquery.js"></script>
 <script src="import/jquery.form.js"></script>
-<script src="img.upload.ui.js"></script>
+<script src="upload.js"></script>
 <script>
     var upload = new window.Upload();
     var callback = function(value) {
@@ -68,4 +68,7 @@
 
    【2016-04-01】
 
-   1. 修改组件内部表单 [input type="file"] name值没有还原问题。  
+   1. 修改组件内部表单 [input type="file"] name值没有还原问题。 
+   【2016-04-08】
+
+   1. 优化代码。  

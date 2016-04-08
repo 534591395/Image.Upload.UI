@@ -1,6 +1,6 @@
 {
-  "name": "@hik/upload.js",
-  "version": "1.2.2",
+  "name": "image.upload.js",
+  "version": "1.2.3",
   "description": "web图片上传组件",
   "keywords": "图片上传组件",
   "private": false,

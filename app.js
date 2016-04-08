@@ -53,7 +53,6 @@ app.get('/loading', function(req, res) {
 });
 
 app.post('/upload', function(request,response) {
-	// 未解决： IE8 下不知道什么原因，files值为空
    var form = new formidable.IncomingForm({uploadDir:"./assets/files"});
       	 console.log(request);
    form.parse(request, function(error, fields, files) {

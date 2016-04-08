@@ -85,7 +85,7 @@
 	            if(xhr.status >= 500) {
 	    			that.alert('服务器异常，稍后再试');
 	    		} else {
-	    			that.alert('操作失败，请检查网络连接~');
+	    			that.alert('操作失败，稍后再试');
 	    		} 
 			 }
 		});
@@ -102,28 +102,23 @@
 	};
 	// 事件
 	Upload.prototype._event = function() {
-		var that = this;
-		var $cloneFile = '';
-		that.$Dom.on('change', 'input[type="file"]', function(e) {
-			var $target = $(e.target);
-			var value = $target.val();
-			$cloneFile = $target.clone();
-			// 触发 input[type="file"] 的 change 事件
-	  	 	setTimeout(function() {
-	  	 		$target.remove();
-	  	 		that.$Dom.append($cloneFile);
-	  	 	},0);
-			if(!value) {
-				if(!RegExp("\.(" + that.ImgType.join("|") + ")$", "i").test(value.toLowerCase())) {
-					that.alert("选择文件错误,图片类型必须是" + that.ImgType.join("，") + "中的一种");
-					that._hackInputFile($target);
-					that.$nowInput = "";
-		  	 		return false;
-				}
-				that.$nowInput = $target;
-				that._ajax();
-			}
-		});
+        var that = this;
+        var $cloneFile = '';
+        that.$Dom.on('change', 'input[type="file"]' ,function(e) {
+            var $target = $(e.target);
+            var value = $target.val();
+            if(!value == "") {
+                if(!RegExp("\.(" + that.ImgType.join("|") + ")$", "i").test(value.toLowerCase())) {
+                    alert("选择文件错误,图片类型必须是" + that.ImgType.join("，") + "中的一种");
+                    that._hackInputFile($target);
+                    that.$nowInput = "";
+                    return false;
+                }
+                that.$nowInput = $target;
+                that._ajax();
+            }
+        });
+        return that;
 	};
 	// hack 方法， 触发 input[type="file"] 的 change 事件
 	// 该方法 IE8 下使用有顺序，必须 ajax请求结束后才能执行该方法，否则上传文件大小为0。
